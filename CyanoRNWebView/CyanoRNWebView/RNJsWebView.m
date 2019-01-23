@@ -33,7 +33,7 @@
         _wkWebView = [[WKWebView alloc] initWithFrame:self.frame configuration:config];
         _wkWebView.UIDelegate = self;
         _wkWebView.navigationDelegate = self;
-        
+        [_wkWebView.configuration.userContentController addScriptMessageHandler:self name:@"JSCallback"];
         
     }
     return _wkWebView;
