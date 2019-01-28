@@ -1,6 +1,0 @@
-framework module CyanoRNWebView {
-  umbrella header "CyanoRNWebView.h"
-
-  export *
-  module * { export * }
-}

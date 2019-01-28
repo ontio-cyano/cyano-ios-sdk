@@ -8,5 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-
+#import "Common.h"
+#import "ONTOBaseViewController.h"
+#import "ONTOSDKViewController.h"
+#import "ONTIdPreViewController.h"
+#import "ONTOAuthSDKViewController.h"
 
