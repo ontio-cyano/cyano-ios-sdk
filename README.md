@@ -4,9 +4,12 @@ cyano-ios-sdk 帮助 iOS webview和网页dapp之间通信。它对iOS webview进
 
 > webview通信的方式是window.postmeaage()
 
-## 如何使用
+- [WALLET](如何使用)
+- ONTID
+- DEMO
+- 下载地址
 
-##### [ONT ID使用请参考 README_ONTID.md](https://github.com/ontio-cyano/cyano-ios-sdk/blob/master/README_ONTID.md)
+## 如何使用
 
 - 将 CyanoRNWebView.framework 导入项目
 - #import "RNJsWebView.h"
