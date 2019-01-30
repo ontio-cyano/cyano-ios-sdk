@@ -4,7 +4,7 @@ cyano-ios-sdk 帮助 iOS webview和网页dapp之间通信。它对iOS webview进
 
 > webview通信的方式是window.postmeaage()
 
-- [WALLET](如何使用)
+- [WALLET](#如何使用)
 - ONTID
 - DEMO
 - 下载地址
