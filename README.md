@@ -6,12 +6,12 @@ Cyano-ios-sdk helps communication between iOS webview and webpage dapp. It encap
 
 > webview communication is done by window.postmessage()
 
-- [WALLET](#(how to use))
+- [WALLET](#Integrate)
 - [ONTID](#ONTID)
 - [DEMO](#DEMO)
 - [Download link](#Download)
 
-## how to use
+# Integrate
 
 - Import CyanoRNWebView.framework into the project
 - #import "RNJsWebView.h"
