@@ -68,7 +68,7 @@
     [self.webView setAuthenticationCallback:^(NSDictionary * callbackDic) {
         NSDictionary * params = callbackDic[@"params"];
         NSString * subaction = params[@"subaction"];
-        NSArray * allSubaction = @[@"getRegistryOntidTx",@"submit"];
+        NSArray * allSubaction = @[@"getRegistryOntidTx",@"submit",@"getIdentity"];
         NSInteger index = [allSubaction indexOfObject:subaction];
         switch (index) {
             case 0:
@@ -76,6 +76,9 @@
                 break;
             case 1:
                 [weakSelf submitRequest:callbackDic];
+                break;
+            case 2:
+                [weakSelf getIdentityRequest:callbackDic];
                 break;
             default:
                 break;
@@ -205,6 +208,24 @@
     [_window addSubview:sheetV];
     [_window makeKeyAndVisible];
 }
+
+-(void)getIdentityRequest:(NSDictionary*)callbackDic{
+    NSString * ONTIDString = [[NSUserDefaults standardUserDefaults] valueForKey:DEFAULTONTID];
+    if (!ONTIDString) {
+        [Common showToast:@"No ONTID"];
+        return;
+    }
+    NSDictionary *params = @{
+                             @"action":@"authentication",
+                             @"version":callbackDic[@"version"],
+                             @"result":[[NSUserDefaults standardUserDefaults] valueForKey:DEFAULTONTID],
+                             @"id":callbackDic[@"id"],
+                             @"error":@0,
+                             @"desc":@"SUCCESS",
+                             };
+    [self.webView sendMessageToWeb:params];
+}
+
 #pragma mark - Progress
 
 - (void)layoutProgressView
