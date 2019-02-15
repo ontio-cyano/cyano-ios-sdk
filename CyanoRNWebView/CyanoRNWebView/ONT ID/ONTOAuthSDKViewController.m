@@ -63,7 +63,7 @@
     [self.webView setAuthenticationCallback:^(NSDictionary * callbackDic) {
         NSDictionary * params = callbackDic[@"params"];
         NSString * subaction = params[@"subaction"];
-        NSArray * allSubaction = @[@"getRegistryOntidTx",@"submit"];
+        NSArray * allSubaction = @[@"getRegistryOntidTx",@"submit",@"getIdentity"];
         NSInteger index = [allSubaction indexOfObject:subaction];
         switch (index) {
                 case 0:
@@ -71,6 +71,9 @@
                 break;
                 case 1:
                 [weakSelf submitRequest:callbackDic];
+                break;
+                case 2:
+                [weakSelf getIdentityRequest:callbackDic];
                 break;
             default:
                 break;
@@ -233,7 +236,7 @@
 
 -(void)getIdentityRequest:(NSDictionary*)callbackDic{
     NSDictionary *params = @{
-                             @"action":@"getIdentity",
+                             @"action":@"authentication",
                              @"version":callbackDic[@"version"],
                              @"result":[[NSUserDefaults standardUserDefaults] valueForKey:DEFAULTONTID],
                              @"id":callbackDic[@"id"],
