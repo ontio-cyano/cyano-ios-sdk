@@ -204,6 +204,143 @@ NSDictionary *params = @{@"action":@"",
 
 ## ONTID
 
+- ONT ID 认证
+
+```
+[webView setAuthenticationCallback:^(NSDictionary * callbackDic) {
+       NSDictionary * params = callbackDic[@"params"];
+       NSString * subaction = params[@"subaction"];
+       NSArray * allSubaction = @[@"getRegistryOntidTx",@"submit",@"getIdentity"];
+       NSInteger index = [allSubaction indexOfObject:subaction];
+       
+       switch (index) {
+       case 0:
+       /* TODO
+        * 1.发送保存的ONT_ID交易Hash到webView
+        * NSDictionary *params = @{
+        *                        @"action":@"authentication",
+        *                        @"version":callbackDic[@"version"],
+        *                        @"result":
+        *                            @{
+        *                                @"subaction":@"getRegistryOntidTx",
+        *                                @"ontid":ontid,
+        *                                @"registryOntidTx":ONT_ID交易Hash
+        *                              },
+        *                        @"id":callbackDic[@"id"],
+        *                        @"error":@0,
+        *                        @"desc":@"SUCCESS",
+        *                        };
+        *  [webView sendMessageToWeb:params];
+        */
+        break;
+        case 1:
+        /* TODO
+         * 1.将H5返回的内容发到钱包后台
+         * 2.将发送结果进行返回
+         * NSDictionary *params = @{
+         *                        @"action":@"authentication",
+         *                        @"version":callbackDic[@"version"],
+         *                        @"result":@1,
+         *                        @"id":callbackDic[@"id"],
+         *                        @"error":@0,
+         *                        @"desc":@"SUCCESS",
+         *                        };
+         *  [webView sendMessageToWeb:params];
+         */
+         break;
+         case 2:
+         /* TODO
+          * 1.发送ONT_ID到webView
+          * NSDictionary *params = @{
+          *                        @"action":@"authentication",
+          *                        @"version":callbackDic[@"version"],
+          *                        @"result":ontid,
+          *                        @"id":callbackDic[@"id"],
+          *                        @"error":@0,
+          *                        @"desc":@"SUCCESS",
+          *                        };
+          *  [webView sendMessageToWeb:params];
+          */
+          break;
+          default:
+          break;
+          }
+}];
+```
+
+- ONT ID 授权
+
+  ```
+  [webView setAuthorizationCallback:^(NSDictionary *callbackDic) {
+          NSDictionary * params = callbackDic[@"params"];
+          NSString * subaction = params[@"subaction"];
+          NSArray  * allSubaction = @[@"exportOntid",@"deleteOntid",@"decryptClaim",
+                                      @"getAuthorizationInfo",@"requestAuthorization"];
+          NSInteger index = [allSubaction indexOfObject:subaction];
+          
+          switch (index) {
+          case 0:
+          /* TODO
+           * 1.弹出密码框，校验ONT ID的密码
+           * 2.将身份导出成WIF格式
+           */
+           break;
+           case 1:
+           /* TODO
+            * 1.弹出密码框，校验ONT ID的密码
+            * 2.密码成功后删除本地ONT ID，关闭页面
+            */
+            break;
+            case 2:
+            /* TODO
+             * 1.弹出密码框，校验ONT ID的密码
+             * 2.解密，得到解密结果
+             * 3.将结果进行返回
+             * NSDictionary *params =   @{
+             *                          @"action":@"authorization",
+             *                          @"version":callbackDic[@"version"],
+             *                          @"result":解密结果,
+             *                          @"id":callbackDic[@"id"],
+             *                          @"error":@0,
+             *                          @"desc":@"SUCCESS",
+             *                          };
+             * [webView sendMessageToWeb:params];
+             */
+             break;
+             case 3:
+             /* TODO
+             * 1.将保存数据中的subaction改成getAuthorizationInfo
+             * 2.将结果进行返回
+             * NSDictionary * resultDic = [[NSUserDefaults standardUserDefaults]
+             *                            valueForKey:ONTIDAUTHINFO];
+             * NSDictionary * resultParams = resultDic[@"params"];
+             * NSMutableDictionary * resultParamsChange = [NSMutableDictionary
+             *                            dictionaryWithDictionary:resultParams];
+             * resultParamsChange[@"subaction"] = @"getAuthorizationInfo";
+             * NSDictionary *params = @{
+             *                        @"action":@"authorization",
+             *                        @"version":callbackDic[@"version"],
+             *                        @"result":resultParamsChange,
+             *                        @"id":callbackDic[@"id"],
+             *                        @"error":@0,
+             *                        @"desc":@"SUCCESS",
+             *                        };
+             *  [webView sendMessageToWeb:params];
+             */
+             break;
+             case 4:
+             /* TODO
+              * 1.保存收到的数据,并跳转到授权界面
+              * [webView setURL:url];
+              */
+              break;
+              default:
+              break;
+              }
+  }];
+  ```
+
+
 ## 如何使用
 
 - 将 CyanoRNWebView.framework 导入项目

@@ -213,6 +213,146 @@ NSDictionary *params = @{@"action":@"",
 
 ## ONTID
 
+- ONT ID Authentication
+
+  ```
+  [webView setAuthenticationCallback:^(NSDictionary * callbackDic) {
+       NSDictionary * params = callbackDic[@"params"];
+       NSString * subaction = params[@"subaction"];
+       NSArray * allSubaction = @[@"getRegistryOntidTx",@"submit",@"getIdentity"];
+       NSInteger index = [allSubaction indexOfObject:subaction];
+       
+       switch (index) {
+       case 0:
+       /* TODO
+        * 1.Send saved ONT_ID transactions to webView
+        * NSDictionary *params = @{
+        *                        @"action":@"authentication",
+        *                        @"version":callbackDic[@"version"],
+        *                        @"result":
+        *                            @{
+        *                                @"subaction":@"getRegistryOntidTx",
+        *                                @"ontid":ontid,
+        *                                @"registryOntidTx":registryOntidTx
+        *                                },
+        *                        @"id":callbackDic[@"id"],
+        *                        @"error":@0,
+        *                        @"desc":@"SUCCESS",
+        *                        };
+        *  [webView sendMessageToWeb:params];
+        */
+       break;
+       case 1:
+       /* TODO
+        * 1.Send the returned H5 content back to the wallet backstage
+        * 2.Return the sent result
+        * NSDictionary *params = @{
+        *                        @"action":@"authentication",
+        *                        @"version":callbackDic[@"version"],
+        *                        @"result":@1,
+        *                        @"id":callbackDic[@"id"],
+        *                        @"error":@0,
+        *                        @"desc":@"SUCCESS",
+        *                        };
+        *  [webView sendMessageToWeb:params];
+        */
+       break;
+       case 2:
+       /* TODO
+        * 1.Send ONT_ID to webView
+        * NSDictionary *params = @{
+        *                        @"action":@"authentication",
+        *                        @"version":callbackDic[@"version"],
+        *                        @"result":ontid,
+        *                        @"id":callbackDic[@"id"],
+        *                        @"error":@0,
+        *                        @"desc":@"SUCCESS",
+        *                        };
+        *  [webView sendMessageToWeb:params];
+        */
+       break;
+       default:
+       break;
+       }
+   }];
+  ```
+
+- ONT ID authorization
+
+  ```
+  [webView setAuthorizationCallback:^(NSDictionary *callbackDic) {
+        NSDictionary * params = callbackDic[@"params"];
+        NSString * subaction = params[@"subaction"];
+        NSArray  * allSubaction = @[@"exportOntid",@"deleteOntid",@"decryptClaim",
+                                   @"getAuthorizationInfo",@"requestAuthorization"];
+        NSInteger index = [allSubaction indexOfObject:subaction];
+  
+        switch (index) {
+        case 0:
+        /* TODO
+         * 1.Pop-up password box to verify ONT ID password
+         * 
+         * 2.Export the identity to the WIF format
+         */
+        break;
+        case 1:
+        /* TODO
+         * 1.Pop-up password box to verify ONT ID password
+         * 
+         * 2.Delete the local ONT ID and close the page after the password is successful
+         */
+        break;
+        case 2:
+        /* TODO
+         * 1.Pop-up password box to verify ONT ID password
+         * 2.Decrypt, get the result of decryption
+         * 3.Return the result
+         * NSDictionary *params =   @{
+         *                          @"action":@"authorization",
+         *                          @"version":callbackDic[@"version"],
+         *                          @"result":Decryption results,
+         *                          @"id":callbackDic[@"id"],
+         *                          @"error":@0,
+         *                          @"desc":@"SUCCESS",
+         *                          };
+         * [webView sendMessageToWeb:params];
+         */
+        break;
+        case 3:
+        /* TODO
+         * 1.Change the subaction that saves the data to getAuthorizationInfo
+         * 
+         * 2.Return the result
+         * NSDictionary * resultDic = [[NSUserDefaults standardUserDefaults] 
+         *                            valueForKey:ONTIDAUTHINFO];
+         * NSDictionary * resultParams = resultDic[@"params"];
+         * NSMutableDictionary * resultParamsChange = [NSMutableDictionary 
+         *                            dictionaryWithDictionary:resultParams];
+         * resultParamsChange[@"subaction"] = @"getAuthorizationInfo";
+         * NSDictionary *params = @{
+         *                        @"action":@"authorization",
+         *                        @"version":callbackDic[@"version"],
+         *                        @"result":resultParamsChange,
+         *                        @"id":callbackDic[@"id"],
+         *                        @"error":@0,
+         *                        @"desc":@"SUCCESS",
+         *                        };
+         *  [webView sendMessageToWeb:params];
+         */
+        break;
+        case 4:
+        /* TODO
+         * 1.Save the received callbackDic and jump to the authorization interface
+         * [webView setURL:url];
+         */
+        break;
+        default:
+        break;
+        }
+  }];
+  ```
+
+
 ## how to use
 
 - Import CyanoRNWebView.framework into the project
