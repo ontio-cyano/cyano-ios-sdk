@@ -7,7 +7,7 @@ Cyano-ios-sdk helps communication between iOS webview and webpage dapp. It encap
 > webview communication is done by window.postmessage()
 
 - [WALLET](#Integrate)
-- [ONTID](#ONTID)
+- [ONTID](#ONTID) (<u>Temporary does not support</u>)
 - [DEMO](#DEMO)
 - [Download link](#Download)
 
