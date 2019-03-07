@@ -66,7 +66,7 @@ Decode and base64 the message body data, and then stitch the first string of the
      *   publicKey、address、message、signature                      
      * NSDictionary *result =@{@"type": @"account",
      *                         @"publicKey":publicKey,
-     *                         @"address": address,
+     *                         @"user": address,
      *                         @"message":message ,
      *                         @"signature":signature,
      *                         };

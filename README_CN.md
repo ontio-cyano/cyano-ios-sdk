@@ -65,7 +65,7 @@ RNJsWebView * webView = [[RNJsWebView alloc]initWithFrame:CGRectZero];
      *   message、signature                          
      * NSDictionary *result =@{@"type": @"account",
      *                         @"publicKey":钱包公钥,
-     *                         @"address": 钱包地址,
+     *                         @"user": 钱包地址,
      *                         @"message":message ,
      *                         @"signature":签名结果,
      *                         };
