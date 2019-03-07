@@ -1,31 +1,36 @@
-English|[中文](https://github.com/ontio-cyano/cyano-ios-sdk/blob/master/README_CN.md)
+English | [中文](https://github.com/ontio-cyano/cyano-ios-sdk/blob/master/README_CN.md)
 
-# cyano-ios-sdk
+# cyano-ios-provider-sdk
 
 Cyano-ios-sdk helps communication between iOS webview and webpage dapp. It encapsulates some methods for iOS webview.
 
 > webview communication is done by window.postmessage()
 
-- [WALLET](#Integrate)
-- [ONTID](#ONTID) (<u>Temporary does not support</u>)
-- [DEMO](#DEMO)
-- [Download link](#Download)
+* [Installation](#Installation)
+* [Integration provider sdk](#Integration-provider-sdk)
+* [ONTID(NOT SUPPORT)](#ONTID(NOT-SUPPORT))
+    * [How to use](#How-to-use-ONTID)
+    * [example](#use-example)
+* [Wallet demo](#wallet-demo)
 
-# Integrate
 
-- Import CyanoRNWebView.framework into the project
-- #import "RNJsWebView.h"
+## Installation
 
-### Example
+Import the project as a module into the project, please refer to [CEP1 ](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki) document for data format.
 
-#### initialization
+```
+#import "RNJsWebView.h"
+```
+## Integration provider sdk
+
+### initialization
 
 ```
 RNJsWebView * webView = [[RNJsWebView alloc]initWithFrame:CGRectZero];
 [webView setURL:@""];
 ```
 
-##### data
+#### data
 
 The message body data format is a json string
 
@@ -211,7 +216,7 @@ NSDictionary *params = @{@"action":@"",
 [webView sendMessageToWeb:params];
 ```
 
-## ONTID
+## ONTID(NOT SUPPORT)
 
 - ONT ID Authentication
 
@@ -408,12 +413,8 @@ if ([Common isBlankString:ontIdString]) {
 }
 ```
 
-## 
+## Wallet demo
 
-## DEMO
+[cyano-ios](https://github.com/ontio-cyano/cyano-ios)
 
-#### [cyano-ios](https://github.com/ontio-cyano/cyano-ios.git)
 
-## download 
-
-https://github.com/ontio-cyano/cyano-ios-sdk
