@@ -1,25 +1,25 @@
-中文|[English](https://github.com/ontio-cyano/cyano-ios-sdk/blob/master/README.md)
+中文 | [English](https://github.com/ontio-cyano/cyano-ios-sdk/blob/master/README.md)
 
-# cyano-ios-sdk
+# cyano-ios-provider-sdk
 
 cyano-ios-sdk 帮助 iOS webview和网页dapp之间通信。它对iOS webview进行了一些方法的封装。
 
 > webview通信的方式是window.postmeaage()
 
-- [WALLET](#如何使用)
-- [ONTID](#ONTID) (<u>暂不支持</u>)
-- [DEMO](#DEMO)
-- [下载地址](#下载地址)
+- [安装](安装)
+- [钱包如何集成 provider sdk基本功能](#钱包如何集成-provider-sdk-基本功能)
+- [ONTID(暂不支持)](#ONTID) 
+- [演示钱包](#演示钱包)
 
-## 如何使用
+
+## 安装
 
 - 将 CyanoRNWebView.framework 导入项目
 
 - #import "RNJsWebView.h"
 
-- 交互协议请参照[CEP1文档](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki)
 
-### 示例
+### 钱包如何集成 provider sdk 基本功能
 
 #### SDK初始化
 
@@ -28,7 +28,7 @@ RNJsWebView * webView = [[RNJsWebView alloc]initWithFrame:CGRectZero];
 [webView setURL:@""];
 ```
 
-##### data
+##### 数据格式
 
 消息体data格式为json字符串
 
@@ -45,12 +45,12 @@ RNJsWebView * webView = [[RNJsWebView alloc]initWithFrame:CGRectZero];
 }
 ```
 
-##### message
+##### 发送消息方法
 
 对消息体 data 进行 decode 并 base64 加密,然后在拼接后的字符串首位再拼接上 ontprovider://ont.io?params= 作为网页端传来的原文数据
 
-- ##### 登录 action: Login
 
+##### 登录 action: Login
 
 ```
 [webView setLoginCallback:^(NSDictionary *callbackDic) {
@@ -85,8 +85,8 @@ RNJsWebView * webView = [[RNJsWebView alloc]initWithFrame:CGRectZero];
 }];
 ```
 
-- ##### 获取资产账号地址 action: GetAccount
 
+##### 获取账户 action: GetAccount
 
 ```
 [webView setGetAccountCallback:^(NSDictionary *callbackDic) {
@@ -105,8 +105,8 @@ RNJsWebView * webView = [[RNJsWebView alloc]initWithFrame:CGRectZero];
 }];
 ```
 
-- ##### 调用合约 action: Invoke
 
+##### 调用合约 action: Invoke
 
 ```
 [webView setInvokeTransactionCallback:^(NSDictionary *callbackDic) {
@@ -139,8 +139,8 @@ RNJsWebView * webView = [[RNJsWebView alloc]initWithFrame:CGRectZero];
 
 
 
-- ##### 预执行合约 action: InvokeRead
 
+##### 预执行合约 action: InvokeRead
 
 ```
 [webView setInvokeReadCallback:^(NSDictionary *callbackDic) {
@@ -171,8 +171,8 @@ RNJsWebView * webView = [[RNJsWebView alloc]initWithFrame:CGRectZero];
 
 
 
-- ##### 免密执行合约 action: InvokePasswordFree
 
+##### 免密调用合约action: InvokePasswordFree
 
 ```
 [webView setInvokePasswordFreeCallback:^(NSDictionary *callbackDic) {
@@ -405,12 +405,8 @@ if ([Common isBlankString:ontIdString]) {
 }
 ```
 
-## 
 
-## DEMO
+## 演示钱包
 
-#### [cyano-ios](https://github.com/ontio-cyano/cyano-ios.git)
+[cyano-ios](https://github.com/ontio-cyano/cyano-ios)
 
-## 下载地址
-
-https://github.com/ontio-cyano/cyano-ios-sdk
