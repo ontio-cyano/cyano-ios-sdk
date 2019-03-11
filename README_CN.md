@@ -14,11 +14,14 @@ cyano-ios-sdk 帮助 iOS webview和网页dapp之间通信。它对iOS webview进
 ## 如何使用
 
 - 将 CyanoRNWebView.framework 导入项目
+
 - #import "RNJsWebView.h"
+
+- 交互协议请参照[CEP1文档](https://github.com/ontio-cyano/CEPs/blob/master/CEPS/CEP1.mediawiki)
 
 ### 示例
 
-#### 初始化
+#### SDK初始化
 
 ```
 RNJsWebView * webView = [[RNJsWebView alloc]initWithFrame:CGRectZero];
@@ -46,7 +49,8 @@ RNJsWebView * webView = [[RNJsWebView alloc]initWithFrame:CGRectZero];
 
 对消息体 data 进行 decode 并 base64 加密,然后在拼接后的字符串首位再拼接上 ontprovider://ont.io?params= 作为网页端传来的原文数据
 
-##### action: Login
+- ##### 登录 action: Login
+
 
 ```
 [webView setLoginCallback:^(NSDictionary *callbackDic) {
@@ -81,7 +85,8 @@ RNJsWebView * webView = [[RNJsWebView alloc]initWithFrame:CGRectZero];
 }];
 ```
 
-##### action: GetAccount
+- ##### 获取资产账号地址 action: GetAccount
+
 
 ```
 [webView setGetAccountCallback:^(NSDictionary *callbackDic) {
@@ -100,7 +105,8 @@ RNJsWebView * webView = [[RNJsWebView alloc]initWithFrame:CGRectZero];
 }];
 ```
 
-##### action: Invoke
+- ##### 调用合约 action: Invoke
+
 
 ```
 [webView setInvokeTransactionCallback:^(NSDictionary *callbackDic) {
@@ -133,7 +139,8 @@ RNJsWebView * webView = [[RNJsWebView alloc]initWithFrame:CGRectZero];
 
 
 
-##### action: InvokeRead
+- ##### 预执行合约 action: InvokeRead
+
 
 ```
 [webView setInvokeReadCallback:^(NSDictionary *callbackDic) {
@@ -164,7 +171,8 @@ RNJsWebView * webView = [[RNJsWebView alloc]initWithFrame:CGRectZero];
 
 
 
-##### action: InvokePasswordFree
+- ##### 免密执行合约 action: InvokePasswordFree
+
 
 ```
 [webView setInvokePasswordFreeCallback:^(NSDictionary *callbackDic) {
@@ -190,7 +198,8 @@ RNJsWebView * webView = [[RNJsWebView alloc]initWithFrame:CGRectZero];
 }];
 ```
 
-##### action: sendMessageToWeb
+- ##### 上报消息 action: sendMessageToWeb
+
 
 ```
 NSDictionary *params = @{@"action":@"",

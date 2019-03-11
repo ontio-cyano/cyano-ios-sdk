@@ -46,7 +46,8 @@ The message body data format is a json string
 
 Decode and base64 the message body data, and then stitch the first string of the concatenated string ontprovider://ont.io?params= as the original data from the web page
 
-##### action: Login
+- ##### Login action: Login
+
 
 ```
 [webView setLoginCallback:^(NSDictionary *callbackDic) {
@@ -82,7 +83,8 @@ Decode and base64 the message body data, and then stitch the first string of the
 }];
 ```
 
-##### action: GetAccount
+- ##### get account of wallet action: GetAccount
+
 
 ```
 [webView setGetAccountCallback:^(NSDictionary *callbackDic) {
@@ -101,7 +103,8 @@ Decode and base64 the message body data, and then stitch the first string of the
 }];
 ```
 
-##### action: Invoke
+- ##### invoke smartcontract action: Invoke
+
 
 ```
 [webView setInvokeTransactionCallback:^(NSDictionary *callbackDic) {
@@ -137,7 +140,8 @@ Decode and base64 the message body data, and then stitch the first string of the
 
 
 
-##### action: InvokeRead
+- ##### prepare execution smartcontract action: InvokeRead
+
 
 ```
 [webView setInvokeReadCallback:^(NSDictionary *callbackDic) {
@@ -171,7 +175,8 @@ Decode and base64 the message body data, and then stitch the first string of the
 
 
 
-##### action: InvokePasswordFree
+- ##### invoke smartcontract with no pwassword action: InvokePasswordFree
+
 
 ```
 [webView setInvokePasswordFreeCallback:^(NSDictionary *callbackDic) {
@@ -199,7 +204,8 @@ Decode and base64 the message body data, and then stitch the first string of the
 }];
 ```
 
-##### action: sendMessageToWeb
+- ##### sendMessage action: sendMessageToWeb
+
 
 ```
 NSDictionary *params = @{@"action":@"",
