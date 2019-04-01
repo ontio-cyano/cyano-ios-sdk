@@ -74,7 +74,7 @@ RNJsWebView * webView = [[RNJsWebView alloc]initWithFrame:CGRectZero];
      * 4.拼接返回结果，包括：action、version、error、desc、id、type、publicKey、address、
      *   message、signature                          
      * NSDictionary *result =@{@"type": @"account",
-     *                         @"publicKey":钱包公钥,
+     *                         @"publickey":钱包公钥,
      *                         @"user": 钱包地址,
      *                         @"message":message ,
      *                         @"signature":签名结果,

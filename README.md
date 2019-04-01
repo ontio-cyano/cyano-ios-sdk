@@ -71,7 +71,7 @@ Decode and base64 the message body data, and then stitch the first string of the
      * 4.Splicing returns results, including：action、version、error、desc、id、type、
      *   publicKey、address、message、signature                      
      * NSDictionary *result =@{@"type": @"account",
-     *                         @"publicKey":publicKey,
+     *                         @"publickey":publicKey,
      *                         @"user": address,
      *                         @"message":message ,
      *                         @"signature":signature,
